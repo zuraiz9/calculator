@@ -17,11 +17,13 @@ body {
   margin: 100px;
 }
 
-.value__container {
-  font-size: 90px;
-  height: 125px;
-  text-align: right;
-  border: solid 2px green;
+input {
+  font-size: 80px;
+  height: 130px;
+  width: 100%;
+  color: white;
+  background: black;
+  border: none;
 }
 
 .btn__container {
