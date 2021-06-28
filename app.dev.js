@@ -1,14 +1,14 @@
+"use strict";
+
 // let currentVal = "";
 // let prevVal = "";
 // let operator = null;
 // let answer = 0;
-
 // buttons.forEach((button) => {
 //   button.addEventListener("click", () {
 //     const btnClick = this.innerHTML;
 //     display.value = btnClick;
 //     console.log(btnClick);
-
 //     if (btnClick === "C") {
 //       currentVal = "";
 //     } else if (btnClick === "+/-") {
@@ -46,7 +46,6 @@
 //     }
 //   });
 // });
-
 // for (let i = 0; i < operators.length; i++) {
 //   operators[i].addEventListener("click", () => {
 //     if (operators[i].innerHTML == "-") {
@@ -68,77 +67,66 @@
 //     } else return;
 //   });
 // }
+var display = document.querySelector(".display");
+var clear = document.querySelector(".btn__ac");
+var numbers = document.querySelectorAll(".btn__no");
+var equal = document.querySelector(".btn__eq");
+var decimal = document.querySelector(".btn__dec");
+var divide = document.querySelector(".btn__op__divide");
+var multiply = document.querySelector(".btn__op__multiply");
+var minus = document.querySelector(".btn__op__minus");
+var add = document.querySelector(".btn__op__add");
+var percent = document.querySelector(".btn__func__perc");
+var plusMinus = document.querySelector(".btn__func__pm");
+var prevVal = "";
+var currentVal = "";
+var operation = null;
 
-const display = document.querySelector(".display");
-const clear = document.querySelector(".btn__ac");
-const numbers = document.querySelectorAll(".btn__no");
-const equal = document.querySelector(".btn__eq");
-const decimal = document.querySelector(".btn__dec");
-const divide = document.querySelector(".btn__op__divide");
-const multiply = document.querySelector(".btn__op__multiply");
-const minus = document.querySelector(".btn__op__minus");
-const add = document.querySelector(".btn__op__add");
-const percent = document.querySelector(".btn__func__perc");
-const plusMinus = document.querySelector(".btn__func__pm");
-
-let prevVal = "";
-let currentVal = "";
-let operation = null;
-
-const changeOutput = (number) => {
+var changeOutput = function changeOutput(number) {
   display.value = number;
 };
 
-numbers.forEach((number) => {
-  number.addEventListener("click", (e) => {
-    const storeValue = e.target.innerHTML;
+numbers.forEach(function (number) {
+  number.addEventListener("click", function (e) {
+    var storeValue = e.target.innerHTML;
     currentVal = currentVal + storeValue;
     changeOutput(currentVal);
   });
 });
-
-clear.addEventListener("click", () => {
+clear.addEventListener("click", function () {
   currentVal = "";
   prevVal = "";
   operation = null;
   changeOutput(0);
 });
-
-add.addEventListener("click", () => {
+add.addEventListener("click", function () {
   operation = "+";
   prevVal = currentVal;
   currentVal = "";
 });
-
-minus.addEventListener("click", () => {
+minus.addEventListener("click", function () {
   operation = "-";
   prevVal = currentVal;
   currentVal = "";
 });
-
-multiply.addEventListener("click", () => {
+multiply.addEventListener("click", function () {
   operation = "x";
   prevVal = currentVal;
   currentVal = "";
 });
-
-divide.addEventListener("click", () => {
+divide.addEventListener("click", function () {
   operation = "/";
   prevVal = currentVal;
   currentVal = "";
 });
-
-percent.addEventListener("click", () => {
+percent.addEventListener("click", function () {
   currentVal /= 100;
   changeOutput(currentVal);
 });
-
-plusMinus.addEventListener("click", () => {
+plusMinus.addEventListener("click", function () {
   currentVal *= -1;
   changeOutput(currentVal);
-});
-
-// decimal.addEventListener("click", () => {
+}); // decimal.addEventListener("click", () => {
 //     if (e.target.innerHTML === "." && !hasDecimal) {
 //           hasDecimal = true;
 //           displayOnScreen
@@ -147,22 +135,23 @@ plusMinus.addEventListener("click", () => {
 //       }
 // });
 
-equal.addEventListener("click", () => {
-  const answer = getTotal();
+equal.addEventListener("click", function () {
+  var answer = getTotal();
   changeOutput(answer);
   currentVal = answer;
   operator = null;
   prevVal = "";
 });
 
-const getTotal = () => {
+var getTotal = function getTotal() {
   if (currentVal === "" || prevVal === "") {
     return;
   }
-  const parsecurrentVal = parseFloat(currentVal);
-  const parseprevVal = parseFloat(prevVal);
+
+  var parsecurrentVal = parseFloat(currentVal);
+  var parseprevVal = parseFloat(prevVal);
   console.log(parsecurrentVal, parseprevVal);
-  let answer = 0;
+  var answer = 0;
 
   if (operation == "x") {
     answer = parseprevVal * parsecurrentVal;
