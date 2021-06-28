@@ -13,7 +13,6 @@ body {
   color: white;
   width: 500px;
   height: 750px;
-  border: solid 2px red;
   margin: 100px;
 }
 
@@ -21,9 +20,11 @@ input {
   font-size: 80px;
   height: 130px;
   width: 100%;
-  color: white;
   background: black;
   border: none;
+  color: white;
+  text-align: right;
+  padding-right: 25px;
 }
 
 .btn__container {
@@ -32,10 +33,18 @@ input {
   height: 80%;
   gap: 15px;
   padding: 20px;
-  border: solid 2px blue;
 }
 
-.btn {
+.btn__no,
+.btn__ac,
+.btn__op__add,
+.btn__op__minus,
+.btn__op__multiply,
+.btn__op__divide,
+.btn__eq,
+.btn__func__pm,
+.btn__func__perc,
+.btn__dec {
   border-radius: 50%;
   color: white;
   background: #333;
@@ -48,12 +57,18 @@ input {
   border-radius: 55px;
 }
 
-.btn--orange {
+.btn__op__add,
+.btn__op__minus,
+.btn__op__multiply,
+.btn__op__divide,
+.btn__eq {
   background: orange;
   font-size: 38px;
 }
 
-.btn--func {
+.btn__func__pm,
+.btn__func__perc,
+.btn__ac {
   background: lightgray;
   color: black;
 }
