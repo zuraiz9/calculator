@@ -1,3 +1,5 @@
+// Group the event listeners together to clean up code.... in progress -->
+
 // let currentVal = "";
 // let prevVal = "";
 // let operator = null;
@@ -24,7 +26,7 @@
 //       operation = "/";
 //       currentVal = "";
 //     } else if (btnClick === "+") {
-//       prevEntry = parseFloat(currentVal);
+//       prevVal = parseFloat(currentVal);
 //       operation = "+";
 //       currentVal = "";
 //     } else if (btnClick === "-") {
@@ -141,7 +143,6 @@ plusMinus.addEventListener("click", () => {
 // decimal.addEventListener("click", () => {
 //     if (e.target.innerHTML === "." && !hasDecimal) {
 //           hasDecimal = true;
-//           displayOnScreen
 //       } else if (e.target.innerHTML === "." && hasDecimal) {
 //           return;
 //       }
