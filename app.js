@@ -1,4 +1,9 @@
-// Group the event listeners together to clean up code.... in progress -->
+// Group the event listeners together to clean up code....  -->
+
+// const display = document.querySelector(".display");
+// const buttons = document.querySelectorAll("button");
+// const operators = document.querySelector(".btn__op");
+
 
 // let currentVal = "";
 // let prevVal = "";
@@ -6,7 +11,7 @@
 // let answer = 0;
 
 // buttons.forEach((button) => {
-//   button.addEventListener("click", () {
+//   button.addEventListener("click", function() {
 //     const btnClick = this.innerHTML;
 //     display.value = btnClick;
 //     console.log(btnClick);
@@ -39,37 +44,20 @@
 //       result = operate(prevVal, operation, currentVal);
 //       operation = null;
 //       currentVal = answer;
-//     } else if (btnClick = numbers) {
+//     } else if (numbers(btnClick)) {
 //       if (currentVal === 0 || currentVal === answer) {
 //         currentVal = btnClick;
 //       } else {
 //         currentVal += btnClick;
-//       }
+//       } 
+//     } else if (operators(btnClicked)) {
+//       prevVal = currentVal;
+//       operation = btnClick;
+//       currentVal = "";
 //     }
 //   });
 // });
 
-// for (let i = 0; i < operators.length; i++) {
-//   operators[i].addEventListener("click", () => {
-//     if (operators[i].innerHTML == "-") {
-//       operation = "-";
-//       prevVal = currentVal;
-//       currentVal = "";
-//     } else if (operators[i].innerHTML == "+") {
-//       operation = "+";
-//       prevVal = currentVal;
-//       currentVal = "";
-//     } else if (operators[i].innerHTML == "x") {
-//       operation = "x";
-//       prevVal = currentVal;
-//       currentVal = "";
-//     } else if (operators[i].innerHTML == "÷") {
-//       operation = "/";
-//       prevVal = currentVal;
-//       currentVal = "";
-//     } else return;
-//   });
-// }
 
 const display = document.querySelector(".display");
 const clear = document.querySelector(".btn__ac");
@@ -140,13 +128,12 @@ plusMinus.addEventListener("click", () => {
   changeOutput(currentVal);
 });
 
-// decimal.addEventListener("click", () => {
-//     if (e.target.innerHTML === "." && !hasDecimal) {
-//           hasDecimal = true;
-//       } else if (e.target.innerHTML === "." && hasDecimal) {
-//           return;
-//       }
-// });
+decimal.addEventListener("click",() => {
+    if (!currentVal.includes(".")) {
+        currentVal += decimal.innerHTML;
+        changeOutput(currentVal)
+    } else !changeOutput(currentVal)
+})
 
 equal.addEventListener("click", () => {
   const answer = getTotal();
